@@ -1,0 +1,232 @@
+
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background-color:white;">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+      <li><a routerLink="/companylist">Manage Company</a></li>
+      <li><a routerLink="/manageexchangelist">Manage Exchange</a></li>
+    <li><a routerLink="/iposlist">Update IPO Details</a></li>
+    <li><a routerLink="/importdata">Import Data</a></li>
+    </ul>
+    </div>
+  </nav>
+  <style>
+
+    .navbar {
+  
+  position: relative;
+  
+  min-height: 50px;
+  
+  margin-bottom: 0px !important;
+  
+  border: 1px solid transparent;
+  
+  }
+  
+  
+  
+  
+  
+  </style>
+<div class="container">
+  <h2>Create New Company</h2>
+  <form [formGroup]="companysaveform" #saveCompany1 (ngSubmit)="saveCompany(saveCompany1)">  
+    <div class="row">
+      <div class="form-group col-sm-4">
+            <label for="companyName">CompanyName:</label>
+            <input type="text" class="form-control" formControlName="companyName" data-toggle="tooltip"
+    
+            data-placement="right" title="Enter CompanyName" required="required">
+            <div class="alert alert-danger" *ngIf="(CompanyName.touched) && (CompanyName.invalid)" style="margin-top: 5px;">
+    
+              <span *ngIf="CompanyName.errors.required">CompanyName is Required</span>
+      
+              <span *ngIf="CompanyName.errors.minlength">
+      
+               Invalid Format
+      
+              </span>
+      
+      
+      
+             </div>
+          </div>
+      </div>
+    
+    
+      <div class="row">
+        <div class="form-group col-sm-4">
+              <label for="ceo">Ceo Name:</label>
+              <input type="text" class="form-control" formControlName="ceo" data-toggle="tooltip"
+      
+              data-placement="right" title="Enter CeoName" required="required">
+              <div class="alert alert-danger" *ngIf="(Ceo.touched) && (Ceo.invalid)" style="margin-top: 5px;">
+      
+                <span *ngIf="Ceo.errors.required">Ceo Name is Required</span>
+        
+                <span *ngIf="Ceo.errors.minlength">
+        
+                 Invalid Ceo Name Format
+        
+                </span>
+        
+        
+        
+               </div>
+            </div>
+        </div>
+      
+      
+        <div class="row">
+          <div class="form-group col-sm-4">
+                <label for="turnOver">TurnOver:</label>
+                <input type="number" class="form-control" formControlName="turnOver" data-toggle="tooltip"
+        
+                data-placement="right" title="Enter TurnOver" required="required">
+                <div class="alert alert-danger" *ngIf="(TurnOver.touched) && (TurnOver.invalid)" style="margin-top: 5px;">
+        
+                  <span *ngIf="TurnOver.errors.required">TurnOver is Required</span>
+          
+                  <span *ngIf="TurnOver.errors.minlength">
+          
+                   Invalid TurnOver Format
+          
+                  </span>
+          
+          
+          
+                 </div>
+              </div>
+          </div>
+        
+          <div class="row">
+            <div class="form-group col-sm-4">
+                  <label for="brief">Brief:</label>
+                  <input type="text" class="form-control" formControlName="brief" data-toggle="tooltip"
+          
+                  data-placement="right" title="Enter Brief" required="required">
+                  <div class="alert alert-danger" *ngIf="(Brief.touched) && (Brief.invalid)" style="margin-top: 5px;">
+          
+                    <span *ngIf="Brief.errors.required">Brief is Required</span>
+            
+                    <span *ngIf="Brief.errors.minlength">
+            
+                     Invalid Brief Format
+            
+                    </span>
+            
+            
+            
+                   </div>
+                </div>
+            </div>
+          
+            
+  <div class="row">
+              <div class="form-group col-sm-4">
+                    <label for="listedInStockExchanges">ListedInStockExchanges:</label>
+                    <input type="text" class="form-control" formControlName="listedInStockExchanges" data-toggle="tooltip"
+            
+                    data-placement="right" title="Enter listedInStockExchanges" required="required">
+                    <div class="alert alert-danger" *ngIf="(ListedInStockExchanges.touched) && (ListedInStockExchanges.invalid)" style="margin-top: 5px;">
+            
+                      <span *ngIf="ListedInStockExchanges.errors.required">ListedInStockExchanges is Required</span>
+              
+                      <span *ngIf="ListedInStockExchanges.errors.minlength">
+              
+                       Invalid ListedInStockExchanges Format
+              
+                      </span>
+              
+              
+              
+                     </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-4">
+                      <label for="boardOfDirectors">BoardOfDirectors:</label>
+                      <input type="text" class="form-control" formControlName="boardOfDirectors" data-toggle="tooltip"
+              
+                      data-placement="right" title="Enter boardOfDirectors" required="required">
+                      <div class="alert alert-danger" *ngIf="(BoardOfDirectors.touched) && (BoardOfDirectors.invalid)" style="margin-top: 5px;">
+              
+                        <span *ngIf="BoardOfDirectors.errors.required">BoardOfDirectors is Required</span>
+                
+                        <span *ngIf="BoardOfDirectors.errors.minlength">
+                
+                         Invalid BoardOfDirectors Format
+                
+                        </span>
+                
+                
+                
+                       </div>
+                    </div>
+                </div>
+  
+              <div class="row">
+                <div class="form-group col-sm-4">
+                      <label for="sector">Sector:</label>
+                      <input type="text" class="form-control" formControlName="sector" data-toggle="tooltip"
+              
+                      data-placement="right" title="Enter sector" required="required">
+                      <div class="alert alert-danger" *ngIf="(Sector.touched) && (Sector.invalid)" style="margin-top: 5px;">
+              
+                        <span *ngIf="Sector.errors.required">Sector is Required</span>
+                
+                        <span *ngIf="Sector.errors.minlength">
+                
+                         Invalid Sector Format
+                
+                        </span>
+                
+                
+                
+                       </div>
+                    </div>
+                </div>
+  
+                <div class="row">
+                  <div class="form-group col-sm-4">
+                        <label for="stockCode">StockCode:</label>
+                        <input type="text" class="form-control" formControlName="stockCode" data-toggle="tooltip"
+                
+                        data-placement="right" title="Enter StockCode" required="required">
+                        <div class="alert alert-danger" *ngIf="(StockCode.touched) && (StockCode.invalid)" style="margin-top: 5px;">
+                
+                          <span *ngIf="StockCode.errors.required">StockCode is Required</span>
+                  
+                          <span *ngIf="StockCode.errors.minlength">
+                  
+                           Invalid StockCode Format
+                  
+                          </span>
+                  
+                  
+                  
+                         </div>
+                      </div>
+                  </div>
+    <button type="submit" class="btn btn-primary mr-4">Save</button>&nbsp;
+       
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h4>Company Added SuccessFully!</h4>
+  <button (click)="companysaveform()"></button>
+
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<nav class="navbar navbar-light" style="background-color:white;">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+      <li><a routerLink="/companylist">Manage Company</a></li>
+      <li><a routerLink="/manageexchangelist">Manage Exchange</a></li>
+    <li><a routerLink="/iposlist">Update IPO Details</a></li>
+    <li><a routerLink="/importdata">Import Data</a></li>
+    </ul>
+    </div>
+  </nav>
+  <style>
+
+    .navbar {
+  
+  position: relative;
+  
+  min-height: 50px;
+  
+  margin-bottom: 0px !important;
+  
+  border: 1px solid transparent;
+  
+  }
+  
+  
+  
+  
+  
+  </style>
+  <body>
+<table  class="table table-hover table-sm" >
+    <thead class="thead-light">  
+        <tr>  
+            <th> COMPANY NAME</th> 
+            <th>CEO</th>  
+            <th> BOARD OF DIRECTORS</th>  
+            <th>LISTED IN STOCK EXCHANGES</th>  
+            <th>BRIEF</th> 
+            <th> TURN OVER</th>  
+            <th> SECTOR</th>  
+            <th>STOCK CODE</th> 
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let company of companyList">  
+           <td>{{company.companyName}}</td>  
+           <td>{{company.ceo}}</td> 
+           <td>{{company.boardOfDirectors}}</td> 
+           <td>{{company.listedInStockExchanges}}</td> 
+           <td>{{company.brief}}</td>   
+           <td>{{company.turnOver}}</td> 
+           <td>{{company.sector}}</td>   
+           <td>{{company.stockCode}}</td>  
+           
+            
+            
+           <td> <button (click)="deleteCompany(company)" class='btn btn-danger'>Delete</button></td>
+           <td> <button (click)="updateCompany(company)" class='btn btn-danger'>Update</button></td>
+           </tr>
+           </tbody>
+</table>
+<a routerLink="/managecompany" class="btn btn-primary" role="button">Add Company</a>
+</body>
+<router-outlet></router-outlet>
+
+

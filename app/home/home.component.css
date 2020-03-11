@@ -1,0 +1,11 @@
+h1{
+    text-align:center;
+}
+
+body{
+    background-image:url('https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+background-repeat:no-repeat;
+background-size: cover;
+height:450px;
+width:1150px;
+}

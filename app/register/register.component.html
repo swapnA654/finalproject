@@ -1,0 +1,200 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>SIGNUP</h2>
+  <div class="row">
+    <div class="col-6">
+  <form [formGroup]="usersaveform" #saveUser1 (ngSubmit)="saveUser(saveUser1)">  
+    <div class="row">
+    <div class="form-group col-sm-4">
+      <label for="email">Email:</label>
+      <div class="input-group">
+
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+      
+      <input type="email" class="form-control" formControlName="email" data-toggle="tooltip"
+
+      data-placement="right" title="Enter Email">
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="id">Id</label>
+    <div class="input-group">
+
+      <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+    
+    <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+
+    data-placement="right" title="Enter Id" required="required"></div>
+    <div class="alert alert-danger" *ngIf="(Id.touched) && (Id.invalid)" style="margin-top: 5px;">
+
+      <span *ngIf="Id.errors.required">Id is Required</span>
+
+      <span *ngIf="Id.errors.minlength">
+
+       MinLength Error
+
+      </span>
+
+     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="mobileNumber">MobileNumber:</label>
+    <div class="input-group">
+
+      <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+    
+    
+    <input type="number" class="form-control" formControlName="mobileNumber" data-toggle="tooltip"
+
+    data-placement="right" title="Enter MobileNumber" required="required"></div>
+    <div class="alert alert-danger" *ngIf="(mobileNumber.touched) && (mobileNumber.invalid)" style="margin-top: 5px;">
+
+      <span *ngIf="mobileNumber.errors.required">MobileNumber is Required</span>
+
+
+      <span *ngIf="mobileNumber.errors.minlength">
+
+        MinLength Error
+ 
+       </span>
+ 
+
+
+     </div>
+  </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-4">
+      <label for="userName">UserName:</label>
+      <div class="input-group">
+
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      
+         
+          <input type="text" class="form-control" formControlName="userName" data-toggle="tooltip"
+
+          data-placement="right" title="Enter UserName" required="required"></div>
+          <div class="alert alert-danger" *ngIf="(userName.touched) && (userName.invalid)" style="margin-top: 5px;">
+
+            <span *ngIf="userName.errors.required">User Name is Required</span>
+     
+            <span *ngIf="userName.errors.minlength">
+     
+             MinLength Error
+     
+            </span>
+     
+           
+        </div>
+    </div>
+  </div>
+    
+<div class="row">
+<div class="form-group col-sm-4">\
+  <label for="pwd">Password:</label>
+  <div class="input-group">
+
+    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+      
+      <input type="password" class="form-control" formControlName="password" data-toggle="tooltip"
+
+      data-placement="right" title="Enter Password" required="required">
+    </div>
+
+      <div class="alert alert-danger" *ngIf="(password.touched) && (password.invalid)" style="margin-top: 5px;">
+
+        <span *ngIf="password.errors.required">Password is Required</span>
+ 
+        <span *ngIf="password.errors.minlength">
+ 
+         Invalid Email Format
+ 
+        </span>
+ 
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="form-group col-sm-4">
+  <label for="confirmed">ConfirmPassword:</label>
+  <div class="input-group">
+
+    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+      
+      <input type="Password" class="form-control" formControlName="confirmed" data-toggle="tooltip"
+
+      data-placement="right" title="Confirm" required="required">
+    </div>
+
+    </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="userType">UserType:</label>
+    <div class="input-group">
+
+      <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+        
+        
+        <input type="text" class="form-control" formControlName="userType" data-toggle="tooltip"
+
+        data-placement="right" title="Enter UserType" required="required"> </div>
+        <div class="alert alert-danger" *ngIf="(userType.touched) && (userType.invalid)" style="margin-top: 5px;">
+
+          <span *ngIf="userType.errors.required">UserType is Required</span>
+  
+          <span *ngIf="userType.errors.minlength">
+  
+           Invalid Email Format
+  
+          </span>
+  
+ 
+  
+         </div>
+      </div>
+  </div>
+
+  <div class="form-group col-sm-4">  
+    <label for="profileImage">Upload Image</label>  
+    <div class="input-group">
+
+      <span class="input-group-addon"><i class="fa fa-upload"></i></span>
+     
+        <input formControlName="profileImage" class="form-control" type="file" (change)="selectFile($event)">   
+    
+  </div>  
+  </div>
+  
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+   
+    <button type="submit">Submit</button><br>
+    <label>Already have an account!</label>
+    <a routerLink="/login">LOGIN</a>
+  </form>
+  </div>
+  </div>
+  
+</div>
+<div [hidden]="!submitted">
+  <h4>User Added SuccessFully!</h4>
+  </div>
+</body>
+</html>
+<router-outlet></router-outlet>

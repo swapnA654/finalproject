@@ -1,0 +1,98 @@
+
+<html lang="en">
+    <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-light" style="background-color:white;">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+          <li><a routerLink="/companylist">Manage Company</a></li>
+          <li><a routerLink="/manageexchangelist">Manage Exchange</a></li>
+        <li><a routerLink="/iposlist">Update IPO Details</a></li>
+        <li><a routerLink="/importdata">Import Data</a></li>
+        </ul>
+        </div>
+      </nav>
+      <style>
+
+        .navbar {
+      
+      position: relative;
+      
+      min-height: 50px;
+      
+      margin-bottom: 0px !important;
+      
+      border: 1px solid transparent;
+      
+      }
+      
+      
+      
+      
+      
+      </style>
+    <div class="container">
+      <h2>Create New IPO</h2>
+      <form [formGroup]="ipossaveform" #saveipos1 (ngSubmit)="saveIpos(saveIpos1)"> 
+        <div class="row">
+            <div class="form-group col-sm-4">
+                  <label for="id">Id:</label>
+                  <input type="number" class="form-control" formControlName="id" id="id" placeholder=" " name="Id">
+                </div>
+            </div> 
+        <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="companyName">CompanyName:</label>
+          <input type="text" class="form-control" formControlName="companyName" id="companyName" placeholder=" " name="CompanyName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+              <label for="stockExchange">StockExchange:</label>
+              <input type=text class="form-control" formControlName="stockExchange" id="ceo" placeholder=" " name="StockExchange">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                  <label for="pricePerShare">PricePerShare:</label>
+                  <input type="text" class="form-control" formControlName="pricePerShare" id="pricePerShare" placeholder=" " name="PricePerShare ">
+                </div>
+            </div>
+    
+    <div class="row">
+      <div class="form-group col-sm-4">
+            <label for="remarks">Remarks:</label>
+            <input type="text" class="form-control" formControlName="remarks" id="remarks" placeholder=" " name="Remarkss">
+          </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+              <label for="totalNumberOfShares">TotalNumberOfShares:</label>
+              <input type="number" class="form-control" formControlName="totalNumberOfShares" id="totalNumberOfShares" placeholder=" " name="TotalNumberOfShares">
+            </div>
+        </div>
+      
+        <div class="row">
+          <div class="form-group col-sm-4">
+                <label for="opendatetime">Date:</label>
+                <input type="Date" class="form-control" formControlName="opendatetime" id="opendatetime" placeholder=" " name="OpenDateTime">
+              </div>
+          </div>
+        <button type="submit" class="btn btn-primary mr-4">Save</button>&nbsp;
+        
+      </form>
+    </div>
+    <div [hidden]="!submitted">
+      <h4>Ipo Added SuccessFully!</h4>
+      </div>
+    </body>
+    </html>
+    
+    

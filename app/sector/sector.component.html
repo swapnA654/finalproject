@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>SECTOR</h2>
+  <form [formGroup]="sectorsaveform" #saveSectors1 (ngSubmit)="saveSectors(saveSectors1)">  
+    <div class="row">
+    <div class="form-group col-sm-4">
+      <label for="id">Id:</label>
+      <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+
+      data-placement="right" title="Enter Id">
+      
+    </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="sectorName">SectorName</label>
+    <input type="text" class="form-control" formControlName="sectorName" data-toggle="tooltip"
+
+    data-placement="right" title="Enter Id" required="required">
+    <div class="alert alert-danger" *ngIf="(SectorName.touched) && (SectorName.invalid)" style="margin-top: 5px;">
+
+      <span *ngIf="SectorName.errors.required">SectorName is Required</span>
+
+      <span *ngIf="SectorName.errors.minlength">
+
+       MinLength Error
+
+      </span>
+
+     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="brief">Brief:</label>
+    <input type="text" class="form-control" formControlName="brief" data-toggle="tooltip"
+
+    data-placement="right" title="Enter Brief" required="required">
+    <div class="alert alert-danger" *ngIf="(Brief.touched) && (Brief.invalid)" style="margin-top: 5px;">
+
+      <span *ngIf="Brief.errors.required">brief is Required</span>
+
+
+      <span *ngIf="Brief.errors.minlength">
+
+        MinLength Error
+ 
+       </span>
+
+     </div>
+  </div>
+</div>
+<button type="submit">submit</button>
+
+  </form>
+</div>
+<div [hidden]="!submitted">
+
+
+
+  <h4>Sector Added SuccessFully!</h4>
+
+
+
+  
+
+  </div>
+
+;
+</body>
+</html>
+

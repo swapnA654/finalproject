@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>LOGIN</h2>
+  
+  <div [hidden]="submitted" style="width: 400px;">
+    <form [formGroup]="usersaveform" #findByUserNameAndPassword1 (ngSubmit)="findByUserNameAndPassword(findByUserNameAndPassword1)" class="form-container">
+    <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="userName">UserName:</label>
+      <div class="input-group">
+
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      
+      <input type="text" class="form-control" formControlName="userName" data-toggle="tooltip"
+
+      data-placement="right" title="Enter User Name" ></div>
+      <div class="alert alert-danger" *ngIf = "(usersaveform.get('userName').touched) && (usersaveform.get('userName').invalid)"
+  
+      style="margin-top: 5px;">
+      <span *ngIf="usersaveform.get('userName').errors.required">username is required</span>
+
+      <span *ngIf = "usersaveform.get('userName').errors.minlength">
+  
+        MinLength Error
+  
+      </span>
+    </div>
+</div>
+    </div>
+<div class="row">
+<div class="form-group col-sm-6">
+  <label for="name">Password</label>
+  <div class="input-group">
+
+    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+  
+
+  <input type="password" class="form-control" formControlName="password" data-toggle="tooltip"
+  
+    data-placement="right" title="Enter Password" ></div>
+  
+  <div class="alert alert-danger" *ngIf = "(usersaveform.get('password').touched) && (usersaveform.get('password').invalid)"
+  
+   style="margin-top: 5px;">
+  
+    <span *ngIf="usersaveform.get('password').errors.required">password is required</span>
+  
+     <span *ngIf = "usersaveform.get('password').errors.minlength">
+  
+       MinLength Error
+  
+     </span>
+</div>
+</div>
+</div>
+    
+    <button type="submit" class="btn btn-primary mr-8">Submit</button>
+    <label>New User?</label>
+<a href="register">Register</a>  
+</form>
+</div>
+  </div>
+  
+
+</body>
+</html>

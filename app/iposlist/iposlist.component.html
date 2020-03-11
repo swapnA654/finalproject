@@ -1,0 +1,62 @@
+<nav class="navbar navbar-light" style="background-color:white;">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+    <li><a routerLink="/companylist">Manage Company</a></li>
+    <li><a routerLink="/manageexchangelist">Manage Exchange</a></li>
+  <li><a routerLink="/iposlist">Update IPO Details</a></li>
+  <li><a routerLink="/importdata">Import Data</a></li>
+  </ul>
+  </div>
+</nav>
+<style>
+
+  .navbar {
+
+position: relative;
+
+min-height: 50px;
+
+margin-bottom: 0px !important;
+
+border: 1px solid transparent;
+
+}
+
+
+
+
+
+</style>
+<body>
+<table  class="table table-hover table-sm" >
+    <thead class="thead-light">  
+        <tr>  
+            <th>ID</th>  
+            <th> COMPANY NAME</th> 
+            <th> STOCK EXCHANGE</th>  
+            <th>PRICE PER SHARE</th>  
+            <th>REMARKS</th> 
+            <th> TOTAL NUMBER OF SHARES</th>    
+            <th>DATE</th> 
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let ipos of iposList">  
+           <td>{{ipos.id}}</td>  
+           <td>{{ipos.companyName}}</td>  
+           <td>{{ipos.stockExchange}}</td>  
+           <td>{{ipos.pricePerShare}}</td>  
+           <td>{{ipos.remarks}}</td>  
+           <td>{{ipos.totalNumberOfShares}}</td>  
+           <td>{{ipos.opendatetime}}</td>  
+           <td> <button (click)="deleteIpos(ipos)" class='btn btn-danger'>Delete</button></td> 
+           <td> <button (click)="updateIpos(ipos)" class='btn btn-danger'>Update</button></td> 
+            
+           </tr>
+           </tbody>
+</table>
+<a routerLink="/ipos" class="btn btn-primary" role="button">Add IPO</a>
+</body>
+<router-outlet></router-outlet>
+
+

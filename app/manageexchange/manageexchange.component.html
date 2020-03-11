@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background-color:white;">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+      <li><a routerLink="/companylist">Manage Company</a></li>
+      <li><a routerLink="/manageexchangelist">Manage Exchange</a></li>
+    <li><a routerLink="/iposlist">Update IPO Details</a></li>
+    <li><a routerLink="/importdata">Import Data</a></li>
+    </ul>
+    </div>
+  </nav>
+  <style>
+
+    .navbar {
+  
+  position: relative;
+  
+  min-height: 50px;
+  
+  margin-bottom: 0px !important;
+  
+  border: 1px solid transparent;
+  
+  }
+  
+  
+  
+  
+  
+  </style>
+<div class="container">
+  <h2>Manage Exchange</h2>
+  <form [formGroup]="exchangesaveform" #saveStockExchange1 (ngSubmit)=" saveStockExchange(saveStockExchange1)">  
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="id">Id</label>
+    <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+
+    data-placement="right" title="Enter Id" required="required">
+    <div class="alert alert-danger" *ngIf="(Id.touched) && (Id.invalid)" style="margin-top: 5px;">
+
+      <span *ngIf="Id.errors.required">Id is Required</span>
+
+      <span *ngIf="Id.errors.minlength">
+
+       MinLength Error
+
+      </span>
+
+     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="stockExchange">StockExchange:</label>
+    <input type="text" class="form-control" formControlName="stockExchange" data-toggle="tooltip"
+
+    data-placement="right" title="Enter StockExchange" required="required">
+    <div class="alert alert-danger" *ngIf="(StockExchange.touched) && (StockExchange.invalid)" style="margin-top: 5px;">
+
+      <span *ngIf="StockExchange.errors.required">StockExchange is Required</span>
+
+
+      <span *ngIf="StockExchange.errors.minlength">
+
+        MinLength Error
+ 
+       </span>
+ 
+
+
+     </div>
+  </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-4">
+          <label for="brief">Brief:</label>
+          <input type="text" class="form-control" formControlName="brief" data-toggle="tooltip"
+
+          data-placement="right" title="Enter Brief" required="required">
+          <div class="alert alert-danger" *ngIf="(Brief.touched) && (Brief.invalid)" style="margin-top: 5px;">
+
+            <span *ngIf="Brief.errors.required">Brief is Required</span>
+     
+            <span *ngIf="Brief.errors.minlength">
+     
+             MinLength Error
+     
+            </span>
+     
+           </div>
+        </div>
+    </div>
+    
+<div class="row">
+<div class="form-group col-sm-4">
+      <label for="contactAddress">ContactAddress:</label>
+      <input type="text" class="form-control" formControlName="contactAddress" data-toggle="tooltip"
+
+      data-placement="right" title="Enter Password" required="required">
+      <div class="alert alert-danger" *ngIf="(ContactAddress.touched) && (ContactAddress.invalid)" style="margin-top: 5px;">
+
+        <span *ngIf="ContactAddress.errors.required">ContactAddress is Required</span>
+ 
+        <span *ngIf="ContactAddress.errors.minlength">
+ 
+         Invalid  Format
+ 
+        </span>
+ 
+       </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+        <label for="remarks">Remarks:</label>
+        <input type="text" class="form-control" formControlName="remarks" data-toggle="tooltip"
+
+        data-placement="right" title="Enter Remarks" required="required">
+        <div class="alert alert-danger" *ngIf="(Remarks.touched) && (Remarks.invalid)" style="margin-top: 5px;">
+
+          <span *ngIf="Remarks.errors.required">Email is Required</span>
+  
+          <span *ngIf="Remarks.errors.minlength">
+  
+           Invalid Format
+  
+          </span>
+  
+  
+  
+         </div>
+      </div>
+  </div>
+
+
+    
+    <button type="submit" class="btn btn-primary mr-4">Submit</button>
+   
+  </form>
+</div>
+<div [hidden]="!submitted">
+
+
+
+  <h4>User Added SuccessFully!</h4>
+
+
+
+  <button (click)="exchangesaveform()"></button>
+
+  </div>
+
+
+</body>
+</html>
+<router-outlet></router-outlet>
+
